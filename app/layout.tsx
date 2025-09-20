@@ -1,8 +1,12 @@
 "use client"; // necessário para hooks no App Router
 import { useEffect } from "react";
+import { Geist_Sans, Geist_Mono } from "next/font/google"; // importar fontes
+
+// configurar fontes
+const GeistSans = Geist_Sans({ subsets: ["latin"], variable: "--geist-sans" });
+const GeistMono = Geist_Mono({ subsets: ["latin"], variable: "--geist-mono" });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-
   useEffect(() => {
     const phrases = [
       "clyyynical",
@@ -18,20 +22,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     let currentText = phrases[phraseIndex];
 
     const interval = setInterval(() => {
-      // efeito de rolagem dentro da mesma frase
       document.title =
         currentText.slice(charIndex) + " " + currentText.slice(0, charIndex);
 
       charIndex++;
       if (charIndex > currentText.length) {
-        // quando termina a frase, passa pra próxima
         charIndex = 0;
         phraseIndex = (phraseIndex + 1) % phrases.length;
         currentText = phrases[phraseIndex];
       }
-    }, 300); // tempo de rolagem, ajuste pra mais rápido ou lento
+    }, 300);
 
-    return () => clearInterval(interval); // limpa ao desmontar
+    return () => clearInterval(interval);
   }, []);
 
   return (
