@@ -14,11 +14,8 @@ export default function RootLayout({
   useEffect(() => {
     const phrases = [
       "clyyynical",
-      "pcnn",
-      "rivotrilll",
-      "thats not v0",
-      "lsddd de testaa",
-      "cretentional"
+      "pcnn", 
+      "rivotrilll"
     ]
 
     let phraseIndex = 0
@@ -35,7 +32,7 @@ export default function RootLayout({
         phraseIndex = (phraseIndex + 1) % phrases.length
         currentText = phrases[phraseIndex]
       }
-    }, 300)
+    }, 200)
 
     return () => clearInterval(interval)
   }, [])
