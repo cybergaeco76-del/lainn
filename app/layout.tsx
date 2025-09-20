@@ -1,10 +1,5 @@
 "use client"; // necessário para hooks no App Router
 import { useEffect } from "react";
-import { Geist_Sans, Geist_Mono } from "next/font/google"; // importar fontes
-
-// configurar fontes
-const GeistSans = Geist_Sans({ subsets: ["latin"], variable: "--geist-sans" });
-const GeistMono = Geist_Mono({ subsets: ["latin"], variable: "--geist-mono" });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -38,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>
         {children}
       </body>
     </html>
