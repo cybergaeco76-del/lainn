@@ -1,8 +1,5 @@
-import type React from "react"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import React, { Suspense, useEffect } from "react"
 import { Analytics } from "@vercel/analytics/next"
-import { Suspense, useEffect } from "react"
 import "./globals.css"
 
 export default function RootLayout({
@@ -39,7 +36,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className="font-sans">
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>
